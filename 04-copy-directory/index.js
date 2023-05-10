@@ -9,7 +9,6 @@ async function copyDir(input, output) {
   await fsPromises.mkdir(`${output}`, { recursive: true });
   let files = await fsPromises.readdir(input, {withFileTypes:true});
   for(let file of files){
-    console.log(file)
      await fsPromises.copyFile(`${input}/${file.name}`, `${output}/${file.name}`);
   };
 }
